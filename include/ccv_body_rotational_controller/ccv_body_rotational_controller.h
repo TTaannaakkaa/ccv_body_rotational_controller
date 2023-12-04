@@ -5,6 +5,7 @@
 #include <geometry_msgs/Twist.h>
 #include <sq2_ccv_roll_pitch_msgs/RollPitch.h>
 #include <ccv_dynamixel_msgs/CmdPoseByRadian.h>
+#include <math.h>
 
 class CcvBodyRotationalController
 {
@@ -16,11 +17,16 @@ public:
     void cmd_pos_callback(const ccv_dynamixel_msgs::CmdPoseByRadian::ConstPtr& msg);
 
 private:
+
+    double calc_roll(double v, double w);
     double MAX_ROLL_ANGLE_;
     double MAX_PITCH_ANGLE_;
     double MAX_ROLL_VELOCITY_;
     double MAX_PITCH_VELOCITY_;
     double HZ_;
+    double V_;
+    double W_;
+    double ROLL_;
 
     ros::NodeHandle nh_;
     ros::NodeHandle local_nh_;
