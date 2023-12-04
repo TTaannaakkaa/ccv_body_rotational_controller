@@ -10,7 +10,6 @@ class CcvBodyRotationalController
 {
 public:
     CcvBodyRotationalController();
-    ~CcvBodyRotationalController();
 
     void process();
     void cmd_vel_callback(const geometry_msgs::Twist::ConstPtr& msg);
@@ -29,6 +28,8 @@ private:
     ros::Subscriber cmd_vel_sub_;
     ros::Subscriber cmd_pos_sub_;
 
+    geometry_msgs::Twist cmd_vel_;
+    ccv_dynamixel_msgs::CmdPoseByRadian cmd_pos_;
     sq2_ccv_roll_pitch_msgs::RollPitch roll_pitch_;
 };
 

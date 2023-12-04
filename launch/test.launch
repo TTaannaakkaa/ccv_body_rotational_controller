@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="setting_file" default="$(find ccv_body_rotational_controller)/config/param/ccv_body_rotational_controller.yaml"/>
+    <node name="ccv_bady_rotational_controller" pkg="ccv_body_rotational_controller" type="ccv_body_rotational_controller_node" output="screen">
+        <rosparam command="load" file="$(arg setting_file)"/>
+    </node>
+</launch>
