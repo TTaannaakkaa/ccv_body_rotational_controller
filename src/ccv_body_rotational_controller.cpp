@@ -31,7 +31,7 @@ double CcvBodyRotationalController::calc_com_vel(double v, double w, double roll
 
 double CcvBodyRotationalController::calc_roll(double v, double w)
 {
-    return (asin((v*w*H_)/(9.81*L_*sqrt(1 - pow(v*w*L_/9.81, 2)))) + asin((v*w*L_/9.81)/sqrt(1 - pow(v*w*L_/9.81, 2))));
+    return -(asin((v*w*H_)/(9.81*L_*sqrt(1 - pow(v*w*L_/9.81, 2)))) + asin((v*w*L_/9.81)/sqrt(1 - pow(v*w*L_/9.81, 2))));
 }
 
 void CcvBodyRotationalController::process(void)
