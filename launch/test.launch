@@ -3,8 +3,8 @@
     <arg name="setting_file" default="$(find ccv_body_rotational_controller)/config/param/ccv_body_rotational_controller.yaml"/>
     <node name="ccv_bady_rotational_controller" pkg="ccv_body_rotational_controller" type="ccv_body_rotational_controller_node" output="screen">
         <rosparam command="load" file="$(arg setting_file)"/>
-        <remap from="/cmd_vel" to="/sq2_ccv/diff_drive_steering_controller/cmd_vel"/>
+        <remap from="/odom" to="/sq2_ccv/diff_drive_steering_controller/odom"/>
         <remap from="/roll_pitch" to="/sq2_ccv/roll_pitch_controller/roll_pitch"/>
     </node>
-    <include file="$(find ccv_sim)/launch/ccv_sim.launch"/>
+    <!-- <include file="$(find ccv_sim)/launch/ccv_sim.launch"/> -->
 </launch>
