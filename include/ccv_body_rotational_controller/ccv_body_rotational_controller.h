@@ -19,15 +19,23 @@ public:
 private:
 
     void odom_callback(const nav_msgs::Odometry::ConstPtr& msg);
-    double calc_com_vel(double v, double w, double roll);
-    double calc_roll(double v, double w);
+    void calc_attitude(double vel, double yaw_rate, double accell);
+    void set_attitude(double roll, double pitch);
+
+    double calc_com_vel(double vel, double yaw_rate, double roll);
+    double calc_roll(double vel, double yaw_rate);
+    double calc_accell(double before_vel, double current_vel);
+    double calc_pitch(double accell);
+
     double MAX_ROLL_ANGLE_;
     double MAX_PITCH_ANGLE_;
     double H_;
     double L_;
     double HZ_;
+    double DT_;
 
-    double V_;
+    double CURRENT_V_;
+    double BEFORE_V_;
     double W_;
     double ROLL_;
     double PITCH_;
